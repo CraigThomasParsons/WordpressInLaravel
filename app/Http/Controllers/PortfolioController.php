@@ -1,13 +1,14 @@
 <?php
 namespace App\Http\Controllers;
-
-use Illuminate\Routing\Controller as BaseController;
+use DB;
+use View;
 
 /**
  * Class Portfolio Controller.
- * sets up the view for the portfolio index.
+ * Sets up the view for the portfolio index.
+ * This is used to display one gallery at a time.
  */
-Class PortfolioController extends BaseController {
+Class PortfolioController extends MainController {
 
     /**
      * Portfolio Controller Gallery View.
@@ -54,7 +55,7 @@ Class PortfolioController extends BaseController {
           );
         }
 
-        $images = new WP_Query(
+        $images = new \WP_Query(
             array(
                 'post_type' => 'attachment',
                 'post_status' => 'inherit',
@@ -81,6 +82,12 @@ Class PortfolioController extends BaseController {
             $columns[] = $imageRow;
         }
 
+        // Used in main.blade.php.
+        $menuItems = $this->menuRepository->fetchGalleryMenuItems();
+        $contactContent = $this->contactModalRepository->getContactContent();
+
+        $arrViewParameters['menuItems'] = $menuItems;
+        $arrViewParameters['contactContent'] = $contactContent;
         $arrViewParameters['images'] = $columns;
 
         return View::make($viewName, $arrViewParameters);

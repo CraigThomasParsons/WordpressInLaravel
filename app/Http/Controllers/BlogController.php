@@ -3,7 +3,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Routing\Controller as BaseController;
 
-class BlogController extends BaseController {
+/**
+ * This isn't being used yet.
+ */
+class BlogController extends MainController {
 
     /**
      * This is for the testimonial section.

@@ -3,7 +3,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Routing\Controller as BaseController;
 
-class MailController extends BaseController {
+/**
+ * The class is used to send out an email from the reveal dialog.
+ * That dialog opens when someone clicks contact.
+ */
+class MailController extends MainController {
 
     //@todo update the email constant later.
     const EMAIL_TO_DEFAULT = 'email@gmail.com';

@@ -14,7 +14,7 @@
  * so someone will have to install their own wordpress for this to work.
  */
 define('WP_USE_THEMES', false);
-require __DIR__ . '/../../wp-blog-header.php';
+require __DIR__ . '/wordpress/wp-blog-header.php';
 
 /*
 |--------------------------------------------------------------------------

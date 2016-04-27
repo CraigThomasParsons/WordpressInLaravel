@@ -1,0 +1,25 @@
+Note to self:
+
+When updating laravel to laravel 5.2 and blade isn't working
+composer require laravelcollective/html
+
+Then read this: 
+https://laracasts.com/discuss/channels/laravel/call-to-undefined-method-illuminatefoundationapplicationbindshared
+
+philsown — 3 months ago
+
+Use the laravelcollective/html package instead of illuminate/html going forward.
+
+How to change over cleanly:
+
+First, comment out the references to Illuminate\Html in your config/app.php. (Don't remove them, you're going to change them in a minute.)
+
+Next, do composer remove illuminate/html.
+
+After that, do composer require laravelcollective/html.
+
+Now uncomment the Illuminate\Html items in your config/app.php file and update references to Collective\Html instead of Illuminate\Html.
+
+If it works, you might get an error "Undefined variable: errors (view ... path to view). In which case, update your routes.php file to use the new 'web' middleware.
+
+Route::group(['middleware' => ['web']], function () use ($router) { $router->resource('whatever', 'WhateverController'); });

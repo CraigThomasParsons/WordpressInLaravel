@@ -78,18 +78,6 @@
         </script>
     </head>
     <?php
-                $results = DB::select('
-                  SELECT *
-                    FROM `phposts`
-                   WHERE `post_type` = "page"
-                     AND `post_name` = "contact"
-                     AND `post_status` != "trash"'
-                );
-
-                $contactContent = '';
-                foreach($results as $result) {
-                    $contactContent .= $result->post_content;
-                }
     ?>
     <body class="home blog custom-background full-width custom-font-enabled single-author">
           <!-- Contact Modal Structure -->
@@ -101,7 +89,7 @@
                   ?>
                 </div>
                 <div class="row">
-                    {{ Form::open(array('route' => 'contact.email', 'class'=> "contact-form col s12", 'id' => "formContact")) }}
+                    {!! Form::open(array('route' => 'contact.email', 'class'=> "contact-form col s12", 'id' => "formContact")) !!}
                       <div class="row">
                         <div class="input-field col s6">
                           <input id="senders_name" type="text" name="sender" class="validate">
@@ -126,7 +114,7 @@
                           <label for="contact-message">Your Message</label>
                         </div>
                       </div>
-                    {{ Form::close() }}
+                    {!! Form::close() !!}
                 </div>
             </div>
             <div class="modal-footer">
@@ -136,30 +124,11 @@
         </div>
         <ul id="galleryDropDown" class="dropdown-content">
           <?php
-                // There shouldn't be a query right here.
-                // Will need to move this to a more maintainable area.
-                $results = DB::select('
-                    SELECT *
-                      FROM `phposts`
-                     WHERE `post_type` = "page"
-                       AND `post_content` LIKE "%[gallery%"
-                       AND `post_status` !=  "trash"'
-                );
-
-                foreach($results as $result) {
-                  echo '<li><a href="'.URL::route('portfolio-gallery', $result->ID).'">';
-                  echo strtoupper($result->post_title);
-                  echo '</a></li>';
-                }
-          ?>
-        </ul>
-        <ul id="2ndGalleryDropDown" class="dropdown-content">
-          <?php
-              foreach($results as $result) {
-                echo '<li style="white-space:nowrap;"><a href="'.URL::route('portfolio-gallery', $result->ID).'">';
-                echo strtoupper($result->post_title);
-                echo '</a></li>';
-              }
+            foreach($menuItems as $result) {
+              echo '<li><a href="'.URL::route('portfolio-gallery', $result->ID).'">';
+              echo strtoupper($result->post_title);
+              echo '</a></li>';
+            }
           ?>
         </ul>
         <nav class="blue-grey" role="navigation">
