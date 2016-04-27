@@ -7,6 +7,15 @@
  * @author   Taylor Otwell <taylorotwell@gmail.com>
  */
 
+/**
+ * Using wordpress.
+ * This file needs to be required for everything to be able to use wordpress.
+ * Word press is git ignored:
+ * so someone will have to install their own wordpress for this to work.
+ */
+define('WP_USE_THEMES', false);
+require __DIR__ . '/../../wp-blog-header.php';
+
 /*
 |--------------------------------------------------------------------------
 | Register The Auto Loader
