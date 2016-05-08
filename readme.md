@@ -1,4 +1,13 @@
-# Laravel PHP Framework
+# Wordpress in Laravel.
+For this to work you need to install wordpress in the public folder.
+
+Make sure the folder name is actually called wordpress.
+Since it'll be importing files like so.
+in index.php:
+define('WP_USE_THEMES', false);
+require __DIR__ . '/wordpress/wp-blog-header.php';
+
+## Laravel PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
 [![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
