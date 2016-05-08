@@ -110,7 +110,10 @@ return [
 
     'log' => env('APP_LOG', 'single'),
 
-    /**
+    /*
+    |--------------------------------------------------------------------------
+    | Front End Configuration and other things.
+    |--------------------------------------------------------------------------
      * The title of your website goes here.
      */
     'menu_title' => env('MENU_TITLE', 'The Website'),
@@ -119,6 +122,8 @@ return [
      * The text showing up in the browser's tab
      */
     'title_tag' => env('TITLE_TAG', 'The Website'),
+
+    'contactEmailTo' => env('CONTACT_EMAIL_TO', 'john@smith.com'),
 
     /*
     |--------------------------------------------------------------------------
