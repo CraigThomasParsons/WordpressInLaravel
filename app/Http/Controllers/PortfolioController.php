@@ -86,6 +86,7 @@ Class PortfolioController extends MainController {
         $menuItems = $this->menuRepository->fetchGalleryMenuItems();
         $contactContent = $this->contactModalRepository->getContactContent();
 
+        $arrViewParameters['viewModel'] = $this->websiteViewModel;
         $arrViewParameters['menuItems'] = $menuItems;
         $arrViewParameters['contactContent'] = $contactContent;
         $arrViewParameters['images'] = $columns;

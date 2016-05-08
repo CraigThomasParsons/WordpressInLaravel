@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Pendulum Photography</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="{{ URL::asset('css/materialize.min.css') }}" rel="stylesheet" />
         <link href="{{ URL::asset('css/style.css') }}" rel="stylesheet" />
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
         <title>
-            pendulum | photography | capture. preserve. treasure.
+            {{ $viewModel->titleTag }}
         </title>
 
         <link id="twentytwelve-fonts-css"
@@ -69,7 +68,6 @@
 
                         submitData[name] = value;
                     });
-                    //console.log(submitData);
                     $.post($('form.contact-form').attr('action'), submitData);
                 })
                 // Initialize collapsible (uncomment the line below if you use the dropdown variation)
@@ -136,7 +134,7 @@
                 <a href="#" data-activates="nav-mobile" class="button-collapse">
                     <i class="material-icons" style="margin-left:5px">menu</i>
                 </a>
-                <span title="pendulum | photography" rel="home" class="brand-logo">&nbsppendulum | photography
+                <span title="pendulum | photography" rel="home" class="brand-logo">&nbsp{{ $viewModel->navBarLabel}}
                 </span>
                 <ul class="right hide-on-med-and-down">
                     <li class="<?php if (isset($navBarActive['home'])) {

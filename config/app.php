@@ -110,6 +110,16 @@ return [
 
     'log' => env('APP_LOG', 'single'),
 
+    /**
+     * The title of your website goes here.
+     */
+    'menu_title' => env('MENU_TITLE', 'The Website'),
+
+    /**
+     * The text showing up in the browser's tab
+     */
+    'title_tag' => env('TITLE_TAG', 'The Website'),
+
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers

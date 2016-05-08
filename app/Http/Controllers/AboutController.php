@@ -38,6 +38,7 @@ class AboutController extends MainController {
         // Used in main.blade.php.
         $menuItems = $this->menuRepository->fetchGalleryMenuItems();
         $contactContent = $this->contactModalRepository->getContactContent();
+        $viewModel = $this->websiteViewModel;
 
         // The navBarActive variable tells main.blade.php which navbar to make
         // active.
@@ -46,6 +47,7 @@ class AboutController extends MainController {
           'navBarActive' => $arrNavBarActive,
           'postContent' => $postContent,
           'contactContent' => $contactContent,
+          'viewModel' => $viewModel
         ));
     }
 }

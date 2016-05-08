@@ -19,8 +19,6 @@ class MenuRepository
      */
     public function fetchGalleryMenuItems()
     {
-        // There shouldn't be a query right here.
-        // Will need to move this to a more maintainable area.
         $results = DB::select('
             SELECT *
               FROM `phposts`

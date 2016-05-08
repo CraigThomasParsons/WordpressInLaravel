@@ -2,8 +2,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Routing\Controller as BaseController;
+use DB;
+use View;
 
-class ContactController extends BaseController {
+class ContactController extends MainController {
 
     /**
      * This is for the contact section.
@@ -30,11 +32,19 @@ class ContactController extends BaseController {
             $postContent .= $result->post_content;
         }
 
+        // Used in main.blade.php.
+        $menuItems = $this->menuRepository->fetchGalleryMenuItems();
+        $contactContent = $this->contactModalRepository->getContactContent();
+        $viewModel = $this->websiteViewModel;
+
         // The navBarActive variable tells main.blade.php which navbar to make
         // active.
         return View::make($viewName, array(
+          'menuItems' => $menuItems,
           'navBarActive' => $arrNavBarActive,
-          'postContent' => $postContent
+          'postContent' => $postContent,
+          'contactContent' => $postContent,
+          'viewModel' => $viewModel
         ));
     }
 }

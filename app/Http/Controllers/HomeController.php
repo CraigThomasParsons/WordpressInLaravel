@@ -36,10 +36,12 @@ class HomeController extends MainController {
         // Used in main.blade.php.
         $menuItems = $this->menuRepository->fetchGalleryMenuItems();
         $contactContent = $this->contactModalRepository->getContactContent();
+        $viewModel = $this->websiteViewModel;
 
         // The navBarActive variable tells main.blade.php which navbar to make
         // active.
         return View::make($viewName, array(
+          'viewModel' => $viewModel,
           'menuItems' => $menuItems,
           'contactContent' => $contactContent,
           'navBarActive' => $arrNavBarActive,
