@@ -1,14 +1,15 @@
 <?php
+
 namespace App\Http\Controllers;
 
-use DB;
-use View;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\View;
 
 /**
  * Display the testimonials page.
  */
-class TestimonialsController extends MainController {
-
+class TestimonialsController extends MainController
+{
     /**
      * This is for the testimonials section.
      *
