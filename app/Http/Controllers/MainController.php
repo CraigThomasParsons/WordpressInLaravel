@@ -1,7 +1,6 @@
 <?php
 namespace App\Http\Controllers;
 
-use Illuminate\Routing\Controller as BaseController;
 use App\Wordpress\Repositories\MenuRepository;
 use App\Wordpress\Repositories\ContactModalRepository;
 use App\ViewModels\WebsiteViewModel;
@@ -12,7 +11,7 @@ use App\ViewModels\WebsiteViewModel;
  * filename: main.blade.php
  * passes the right information.
  */
-class MainController extends BaseController {
+class MainController extends Controller {
 
     protected $menuRepository;
     protected $contactModalRepository;
